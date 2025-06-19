@@ -6,8 +6,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class PedidoConsumer {
 
-    @RabbitListener(queues = "fila_pedidos")
-    public void processarPedido(String mensagem){
-        System.out.println("Pedido recebido da fila: " + mensagem);
+    @RabbitListener(queues = "fila_pagamento")
+    public void processarPagamento(String mensagem){
+        System.out.println("[PAGAMENTO] " + mensagem);
+    }
+
+    @RabbitListener(queues = "fila_entrega")
+    public void processarEntrega(String mensagem){
+        System.out.println("[ENTREGA] " + mensagem);
     }
 }

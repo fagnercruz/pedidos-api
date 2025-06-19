@@ -5,13 +5,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PedidoProducer {
+
     private final RabbitTemplate rabbitTemplate;
 
+    // Construtor
     public PedidoProducer(RabbitTemplate rabbitTemplate){
         this.rabbitTemplate = rabbitTemplate;
     }
-    public void enviarPedido(String mensagem){
-        rabbitTemplate.convertAndSend("fila_pedidos",mensagem);
+
+    public void enviarPedido(String mensagem, String tipo){
+        rabbitTemplate.convertAndSend("pedido.direct",tipo,mensagem);
     }
 
 }
