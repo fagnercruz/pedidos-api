@@ -32,6 +32,12 @@ public class PedidoController {
         return pedido;
     }
 
+    @PostMapping("/broadcast")
+    public String enviarBroadcast(@RequestBody String mensagem) {
+        pedidoProducer.broadcastPedido(mensagem);
+        return "Broadcast enviado com sucesso";
+    }
+
     @GetMapping
     public List<Pedido> listarPedidos() {
         return pedidos;

@@ -17,4 +17,8 @@ public class PedidoProducer {
         rabbitTemplate.convertAndSend("pedido.direct",tipo,mensagem);
     }
 
+    public void broadcastPedido(String mensagem){
+        rabbitTemplate.convertAndSend("pedido.fanout", "" ,mensagem);
+    }
+
 }

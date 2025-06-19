@@ -15,4 +15,14 @@ public class PedidoConsumer {
     public void processarEntrega(String mensagem){
         System.out.println("[ENTREGA] " + mensagem);
     }
+
+    @RabbitListener(queues = "fila_financeiro")
+    public void receberFinanceiro(String mensagem){
+        System.out.println("[FINANCEIRO] " + mensagem);
+    }
+
+    @RabbitListener(queues = "fila_auditoria")
+    public void receberAuditoria(String mensagem){
+        System.out.println("[AUDITORIA] " + mensagem);
+    }
 }
