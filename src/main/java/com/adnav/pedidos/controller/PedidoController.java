@@ -38,6 +38,13 @@ public class PedidoController {
         return "Broadcast enviado com sucesso";
     }
 
+    @PostMapping("/topico")
+    public String enviarTopico(@RequestParam String mensagem, @RequestParam String routingKey) {
+        pedidoProducer.enviarComRoutingKey(mensagem, routingKey);
+        return "Mensagem enviada com routing key: " + routingKey;
+    }
+
+
     @GetMapping
     public List<Pedido> listarPedidos() {
         return pedidos;

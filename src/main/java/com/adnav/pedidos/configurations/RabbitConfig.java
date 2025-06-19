@@ -70,4 +70,46 @@ public class RabbitConfig {
     public Binding bindingAuditoria(Queue filaAuditoria, FanoutExchange fanoutExchange){
         return BindingBuilder.bind(filaAuditoria).to(fanoutExchange);
     }
+
+    /*
+     *  TOPIC EXCHANGE
+     *
+     * */
+
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange("pedido.topic");
+    }
+
+    @Bean
+    public Queue filaPedidosNovos() {
+        return new Queue("fila_pedidos_novos");
+    }
+
+    @Bean
+    public Queue filaCancelamentos() {
+        return new Queue("fila_pedidos_cancelados");
+    }
+
+    @Bean
+    public Queue filaVIP() {
+        return new Queue("fila_pedidos_vip");
+    }
+
+    // Bindings com padrões
+    @Bean
+    public Binding bindingNovos(Queue filaPedidosNovos, TopicExchange topicExchange) {
+        return BindingBuilder.bind(filaPedidosNovos).to(topicExchange).with("pedido.novo");
+    }
+
+    @Bean
+    public Binding bindingCancelados(Queue filaCancelamentos, TopicExchange topicExchange) {
+        return BindingBuilder.bind(filaCancelamentos).to(topicExchange).with("pedido.cancelado.#");
+    }
+
+    @Bean
+    public Binding bindingVIP(Queue filaVIP, TopicExchange topicExchange) {
+        return BindingBuilder.bind(filaVIP).to(topicExchange).with("pedido.*.vip");
+    }
+
 }

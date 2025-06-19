@@ -21,4 +21,8 @@ public class PedidoProducer {
         rabbitTemplate.convertAndSend("pedido.fanout", "" ,mensagem);
     }
 
+    public void enviarComRoutingKey(String mensagem, String routingKey) {
+        rabbitTemplate.convertAndSend("pedido.topic", routingKey, mensagem);
+    }
+
 }
