@@ -1,4 +1,4 @@
-package com.adnav.pedidos.model;
+package com.adnav.estudos.pedidos.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

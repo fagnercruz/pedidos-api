@@ -1,4 +1,4 @@
-package com.adnav.pedidos.configurations;
+package com.adnav.estudos.pedidos.configurations;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;

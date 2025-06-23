@@ -1,7 +1,7 @@
-package com.adnav.pedidos.controller;
+package com.adnav.estudos.pedidos.controller;
 
-import com.adnav.pedidos.model.Pedido;
-import com.adnav.pedidos.service.PedidoProducer;
+import com.adnav.estudos.pedidos.model.Pedido;
+import com.adnav.estudos.pedidos.service.PedidoProducer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

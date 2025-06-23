@@ -1,4 +1,4 @@
-package com.adnav.pedidos;
+package com.adnav.estudos.pedidos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.adnav.pedidos.service;
+package com.adnav.estudos.pedidos.service;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
