@@ -2,7 +2,9 @@ package com.adnav.production.pedidos.producer;
 
 import com.adnav.production.pedidos.model.Pedido;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PedidoProducer {
 
     private final RabbitTemplate rabbitTemplate;
