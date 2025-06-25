@@ -9,6 +9,7 @@ public class PedidoConsumer {
     @RabbitListener(queues = "fila_pedidos_cancelados")
     public void processarCancelamento(String mensagem) {
         System.out.println("❌ [Cancelamento] " + mensagem);
+        throw new RuntimeException("Teste de ERRO");
     }
 
     @RabbitListener(queues = "fila_pagamento")
@@ -25,5 +26,12 @@ public class PedidoConsumer {
     public void processarUrgentes(String mensagem) {
         System.out.println("🚨 [URGENTE] " + mensagem);
     }
+
+    // Consumidor só para DLQ
+    @RabbitListener(queues = "fila_pedidos_cancelados_dlq")
+    public void processarDLQ(String mensagem) {
+        System.out.println("☠️ [DLQ - Cancelamentos] Mensagem morta recebida: " + mensagem);
+    }
+
 }
 
